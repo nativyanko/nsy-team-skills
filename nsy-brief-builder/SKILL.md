@@ -177,7 +177,7 @@ After the CTA, add a blank row, then:
 
 **EDITOR NOTES IN THE SCRIPT TABLE - CRITICAL GUIDANCE:**
 
-The Editor Notes column is the editor's instruction manual for each module. It must be simple, direct, and actionable. The editor's biggest bottleneck is finding the right B-roll footage, so every row must tell them exactly what footage to source or use.
+The Editor Notes column is the editor's instruction manual for each module. Editors are executors, not thinkers. Every note must be a literal, specific editing direction that the editor can follow without making any creative decisions. The editor's biggest bottleneck is finding the right B-roll footage, so every row must tell them exactly what footage to source or use.
 
 **What to include in each Editor Notes cell (in this order):**
 
@@ -200,7 +200,19 @@ B-roll: Open tight on watch face showing score, pull back to reveal creator
 The editor should consider opening with a close-up shot of the creator's Garmin watch, ideally showing a recovery score that looks concerning. This establishes the data-driven nature of the concept and creates immediate visual intrigue. The camera should then slowly pull back to reveal the creator in their kitchen setting with natural morning light.
 ```
 
-The good version tells the editor exactly what to do in two lines. The bad version buries the same instruction in a paragraph of unnecessary context.
+**Also bad - conceptual vibes instead of directions:**
+```
+Two words. Let them sit. The simplicity is the emotional beat.
+```
+```
+The morning shot should feel genuinely different from the tossing-and-turning shots earlier.
+```
+```
+This line should get a smile from the viewer.
+```
+These tell the editor how something should FEEL, not what to DO. The editor can't execute a feeling. They can execute "Hold for 2 seconds. No cuts. No music." or "Cut to morning light through curtains. Woman stretching in bed."
+
+The good version tells the editor exactly what to do in two lines. The bad version buries the same instruction in a paragraph of unnecessary context. The vibes version gives the editor nothing to execute at all.
 
 **For the Shot List:**
 Generate at least 10 shots. Each shot follows the naming convention: "Shot [number] - [Short Name]"

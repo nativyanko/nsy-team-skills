@@ -50,7 +50,7 @@ For **new concept ideation:**
   - Concept name (short, descriptive)
   - Target avatar (specific, from client research)
   - Angle/hypothesis (one sentence: why this will work, grounded in research or performance data)
-  - Suggested format (UGC, AI voiceover, founder, B-roll)
+  - Suggested format (UGC, AI voiceover, founder, B-roll, AI animation)
   - Awareness stage
   - Hook direction (rough, not fully written)
 
@@ -142,6 +142,7 @@ SCRIPT RATIONALE
 - **VO / Shot Direction** - The spoken script text AND what happens on screen. For UGC: what the creator says and does. For AI voiceover: the VO text and what footage plays. For founder content: what they say to camera. Write this as if directing someone on set. Be specific.
 - **On-screen Captions** - Text overlays that appear on screen. Remember the three-layer hook rule: text overlay, visual, and audio should complement each other, not repeat. In body rows, only specify captions when they add something beyond what's being said (a stat, a product name, a bold claim). Most body rows need no separate caption call-out because the auto-generated captions ARE the text.
 - **Visuals** - B-roll direction, product shots, demonstrations, props, setting details. For editor-sourced footage, write this like search terms for a stock site. For creator-filmed content, describe what the creator should be doing physically. Include at least one unexpected visual moment per script (see principles file).
+- **Editor Notes** - Literal, specific editing directions for the editor. Editors are executors, not thinkers. Every editor note must include: (1) exact text overlays with the words to display, (2) specific B-roll to use, (3) hold times in seconds, (4) when music starts/stops, (5) cut directions and transitions. Never write conceptual notes like "the simplicity is the emotional beat" or "this should feel warm." Instead write "Cut to B-roll of woman lying awake staring at ceiling. Text overlay: 'Nothing worked.' Hold for 2 seconds after VO finishes. No music. No cuts." The editor should be able to execute the entire ad without making a single creative decision.
 
 **Row guidelines:**
 - Not every script needs the same number of rows. A 30-second script might have 5 rows. A 90-second script might have 10-12.
@@ -274,13 +275,74 @@ Consider testing hooks across self-concept anchors too. Hook 1 in actual self (a
 
 ---
 
+## QUALITY GATE (Recursive Self-Improvement Loop)
+
+**This runs automatically after generating any script (Video, Static, Hook Lab, or Rewrite). Do not skip it. Do not present the script to the strategist until it passes.**
+
+### How it works
+
+After generating the first draft, score it against the 10 criteria below. Each criterion is pass/fail. If any criterion fails, diagnose why, rewrite the failing sections, and re-score. Repeat until all 10 pass. Maximum 3 iterations - if it still fails after 3, present the best version with a note on what's still weak and why.
+
+### The 10 Criteria
+
+| # | Criterion | What PASS looks like | What FAIL looks like |
+|---|-----------|---------------------|---------------------|
+| 1 | **Anti-Ad Test** | Every line sounds like organic content. Could appear between a friend's holiday photos and a cooking video without feeling out of place. | Any line sounds like a commercial, VSL, brochure, or press release. Staccato fragment chains. Rhetorical transition questions. |
+| 2 | **Hook Differentiation** | All 4 hooks test strategically different approaches (different hook types, psychological triggers, entry points). Three-layer system (text/visual/audio) complements, not repeats. | Hooks are minor wording variations of the same idea. Text overlay repeats the spoken hook. |
+| 3 | **Mechanism Clarity** | The mechanism passes the dinner test - you could explain it to someone in one sentence and they'd go "oh, that makes sense." Analogy is intuitive and vivid. | Mechanism is too complex, too vague, or missing entirely. Analogy doesn't land in one hearing. |
+| 4 | **Straight Line** | Every sentence advances the argument in one direction. Hook to problem to mechanism to product to proof to CTA. No zigzags, no circling back. | Any section revisits a point already passed. Problem reappears after solution. Proof section re-agitates instead of building trust. |
+| 5 | **Voice Match** | Vocabulary, sentence length, emotional register, and cultural references match the target avatar. A perimenopausal woman doesn't sound like a male gym-goer. | Generic voice that could be anyone. Vocabulary mismatch. Emotional register wrong for the audience. |
+| 6 | **Specificity** | At least 2-3 specific numbers, stats, timeframes, or named comparisons from client research. Vague claims replaced with concrete ones. | Relies on generic benefits ("improves sleep," "boosts energy") when specific data exists in the research docs. |
+| 7 | **Two-Promise Split** | Teaser promises in hooks (sell the video). Bold product claims in proof section (sell the product). No mixing. | Hook tries to sell the product. Proof section teases instead of delivering. Promise types blurred across sections. |
+| 8 | **Emotional Peak** | You can point to exactly one line that is the emotional core of the script. The pacing builds toward it and gives it space. | No identifiable emotional peak. Every line has the same emotional weight. The script is flat. |
+| 9 | **Dismiss-Alternatives Beat** | At least one sentence closing the self-help exit door. Ideally the "makes it worse" upgrade when research supports it. | Viewer's "can I just fix this myself?" question goes unanswered. No mention of why alternatives fail. |
+| 10 | **Persona Alignment** | Hook maps to core motivator. Agitation maps to core fear. Proof type matches cognitive bias. CTA directness matches awareness level. | Any persona-to-script mapping is missing or mismatched. Script feels generic rather than targeted. |
+
+### Scoring Output Format
+
+After each draft, produce this scorecard INTERNALLY (do not show it to the strategist unless they ask):
+
+```
+QUALITY GATE - [Draft 1/2/3]
+
+1. Anti-Ad Test:        PASS / FAIL - [one-line diagnosis if fail]
+2. Hook Differentiation: PASS / FAIL - [one-line diagnosis if fail]
+3. Mechanism Clarity:    PASS / FAIL - [one-line diagnosis if fail]
+4. Straight Line:        PASS / FAIL - [one-line diagnosis if fail]
+5. Voice Match:          PASS / FAIL - [one-line diagnosis if fail]
+6. Specificity:          PASS / FAIL - [one-line diagnosis if fail]
+7. Two-Promise Split:    PASS / FAIL - [one-line diagnosis if fail]
+8. Emotional Peak:       PASS / FAIL - [one-line diagnosis if fail]
+9. Dismiss-Alternatives: PASS / FAIL - [one-line diagnosis if fail]
+10. Persona Alignment:   PASS / FAIL - [one-line diagnosis if fail]
+
+Score: [X]/10
+Status: PASS (all 10) / ITERATE (rewrite failing sections) / BEST EFFORT (after 3 iterations)
+```
+
+### Adversarial Pressure
+
+After the scorecard, run one adversarial check. Adopt the perspective of a **distracted scroller** - someone half-watching with sound off, thumb hovering over the screen:
+
+- Would the first 2 seconds make them pause? (If not, the hook visual/text overlay is too weak)
+- Would they understand the product benefit within 5 seconds of sound-on? (If not, the script buries the lede)
+- Would they scroll past because it "looks like an ad"? (If yes, the anti-ad test needs to be stricter)
+
+If the adversarial check surfaces a problem the scorecard missed, flag it and fix it in the same iteration.
+
+### When the strategist asks to see the scorecard
+
+If the strategist says "show me the score" or "how does this rate" or "quality check," show the full scorecard with diagnoses. Otherwise, only present the final passing script.
+
+---
+
 ## CRITICAL RULES
 
 These are non-negotiable. Every script, every time.
 
 1. **Know the destination before writing.** Ask: "Where does the traffic go?" A script sending traffic to a VSL is fundamentally different from a script sending to a product page. The destination changes the CTA, the amount of selling, and whether you name the product. If unsure, ask the strategist.
 
-2. **Know the creator type before writing.** Ask: "UGC, AI voiceover, founder, or B-roll?" The creator type determines the structure. A UGC script uses Structure 2 (Personal Discovery). An expert script uses Structure 1 or 3. An AI voiceover uses Structure 1 with B-roll direction. Writing without knowing the creator type produces scripts that can't be filmed.
+2. **Know the creator type before writing.** Ask: "UGC, AI voiceover, founder, B-roll, or AI animation?" The creator type determines the structure. A UGC script uses Structure 2 (Personal Discovery). An expert script uses Structure 1 or 3. An AI voiceover uses Structure 1 with B-roll direction. An **AI animation** script uses personification with characters speaking on screen (see AI Animation section below). Writing without knowing the creator type produces scripts that can't be produced.
 
 3. **The Rule of One.** One avatar. One desire. One message. Every element of the ad serves a single person with a single want through a single throughline. If you can't describe who this ad is for in one sentence, the script is trying to do too much. Split it into two concepts.
 
@@ -322,9 +384,70 @@ Not rigid formulas. Calibration tools. Apply with judgment based on the avatar, 
 
 ---
 
+## AI Animation Production
+
+Some concepts are best produced as AI animation (Seedance 2.0, Kling) rather than filmed with human creators. The creative strategy skill should detect this and write scripts optimized for AI execution.
+
+### When to Flag for AI Animation
+
+| Signal in the Concept | Production Format |
+|----------------------|-------------------|
+| Personification - a substance/condition given a body and voice | AI Animation |
+| Impossible visuals - things that can't be filmed with a camera | AI Animation |
+| Literal metaphors - abstract claims made physically visible | AI Animation |
+| Inside-the-body scenes - bloodstream, brain, cells | AI Animation |
+| Character vs character narrative - villain/hero with a victim | AI Animation |
+| UGC / talking head / testimonial | Human Creator |
+| Product demo / unboxing / ASMR | Human Creator |
+| Founder story / expert interview | Human Creator |
+| Day in the life / GRWM / routine | Human Creator |
+
+When a concept is flagged for AI animation, note it in the script output:
+```
+CREATOR: AI Animation (Personification - Seedance pipeline)
+```
+
+### How AI Animation Changes Script Writing
+
+1. **Visual direction must be hyper-specific.** AI can't interpret vague direction. "Show the feeling of exhaustion" fails. "Man slumped on sofa, dark circles under eyes, grey skin, mouth open, TV remote on floor" works. Describe exactly what the viewer sees.
+
+2. **One clear visual action per scene.** AI struggles with complex multi-action sequences. Each script row should describe ONE thing happening. If two things happen, split into two rows.
+
+3. **Dialogue must be short per scene.** Max 1-2 short sentences per script row. AI video tools mispronounce words and add gibberish filler if given too much dialogue. If a line is long, split it across two rows.
+
+4. **Avoid technical words in dialogue.** AI mispronounces "magnesium glycinate", complex compound names, and brand-specific terminology. Simplify: "the magnesium it needs" instead of "250mg of magnesium glycinate."
+
+5. **State the colour palette per scene.** AI doesn't infer mood from context. Explicitly write "Dark reds, murky browns, dim lighting" for villain scenes and "Warm cyan, gold, clean whites, bright lighting" for hero scenes.
+
+6. **Camera direction per scene.** AI needs specific camera instructions. "Camera slowly pushes in on the villain's face" or "Camera follows the hero across the room." Not just "close-up."
+
+7. **The Personification Format.** When writing personification scripts, use the villain/victim/hero framework:
+   - Villain (the problem personified) narrates the first half in a sinister tone
+   - Hero (the product personified) narrates the second half in a warm tone
+   - The victim (the consumer) is present in every scene, being acted upon
+   - The villain physically exploits the victim (straw in head, puppet strings, sitting on chest)
+   - The hero physically protects the victim (shield, healing hands, standing guard)
+   - See `references/structures-and-hooks.md` for the Personification concept format
+
+### Editor Notes for AI Animation Scripts
+
+For AI animation, editor notes serve a different purpose. They become the input for AI video prompt generation (handled by the `nsy-ai-video-ads` skill). Write them as literal scene descriptions:
+
+- What each character is physically doing (action, pose, expression)
+- What the character says (exact dialogue)
+- Colour palette (dark/warm/bright)
+- Camera direction (push in, pull back, follow)
+- Duration estimate based on dialogue length
+- Which reference images are needed
+
+**Handoff:** Once the script is written and approved, use the `nsy-ai-video-ads` skill to convert editor notes into Seedance/Kling prompts with proper duration calibration, audio scripts, and reference image management.
+
+---
+
 ## What This Skill Does NOT Do
 
 - Does not push scripts to Notion (Brief Builder skill handles that)
 - Does not do primary research (Creative Research skill handles that)
 - Does not generate image prompts for static ad production tools
+- Does not generate Seedance/Kling video prompts (AI Video Ads skill handles that)
 - Does not make final strategic decisions. The strategist decides.

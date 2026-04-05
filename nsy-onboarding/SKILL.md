@@ -13,12 +13,46 @@ End-to-end onboarding workflow for new NSY Digital clients. This skill is used a
 
 ---
 
+## Onboarding Status Table
+
+**IMPORTANT:** At the start of every onboarding, show Nativ this table. Update it as each step is completed. This is the single source of truth for tracking progress.
+
+```
+| # | Task | Status | Who |
+|---|------|--------|-----|
+| 1 | Agreement signed | _ | Nativ |
+| 2 | Team Projects page created in Notion | _ | Claude |
+| 3 | All Notion properties filled (incl. Batch Start Date) | _ | Claude |
+| 4 | Project Overview + Ideas Library filters set | _ | Nativ |
+| 5 | Onboarding form shared (public link) | _ | Nativ |
+| 6 | Google Drive folders created (Active Clients + Raw Content) | _ | Claude |
+| 7 | Google Sheet created (onboarding script) | _ | Claude |
+| 8 | n8n mappings updated (BRAND_SHEETS + BRAND_SLACK) | _ | Claude |
+| 9 | Apps Script authorized on Google Sheet | _ | Nativ |
+| 10 | Slack bot invited to #nsy-[brand] | _ | Nativ |
+| 11 | Google Sheet shared with client | _ | Nativ |
+| 12 | Slack channels created (#nsy + #internal) | _ | Nativ |
+| 13 | Client invited to Slack | _ | Nativ |
+| 14 | Onboarding message sent with form link | _ | Nativ |
+| 15 | Client Contract Management updated | _ | Claude |
+| 16 | Month 1 invoice sent | _ | Nativ |
+| 17 | Confirmation email sent to client | _ | Nativ |
+| 18 | Onboarding Call page pre-populated | _ | Claude |
+| 19 | Kick-off call scheduled | _ | Nativ |
+| 20 | Creative research started | _ | Claude |
+| 21 | Client Claude project set up | _ | Nativ |
+```
+
+Replace `_` with `Done` as each step completes. Steps marked "Claude" are automated or done by Claude. Steps marked "Nativ" require manual action - coordinate with Nativ by telling him exactly what to do.
+
+---
+
 ## Step 1: Gather Required Information
 
 Pull from conversation context first. Only ask for what is genuinely missing.
 
 **Required (must have before starting):**
-- `brand_name` — The brand name as it will appear in Notion (e.g. "Mission", "Ascent"). Must match exactly across all systems (Notion, Google Sheets, Make.com).
+- `brand_name` — The brand name as it will appear in Notion (e.g. "Mission", "Ascent"). Must match exactly across all systems (Notion, Google Sheets, n8n).
 - `brand_code` — 2-4 letter code (e.g. "MSN", "ASC")
 - `agreement_signed` — Confirm the agreement is signed. Do NOT start onboarding until signed.
 - `start_date` — Engagement start date (e.g. "6th April 2026"). This becomes the Batch Start Date.
@@ -57,7 +91,7 @@ Create the page with ALL of these properties populated:
 
 | Property | Value | Notes |
 |---|---|---|
-| Brand | [brand_name] | Must match exactly in Make.com datastore |
+| Brand | [brand_name] | Must match exactly across all systems |
 | Brand Code | [brand_code] | 2-4 letters |
 | Status | Active | Always Active for new clients |
 | Deal | [deal_type] | Retainer or One-Time |
@@ -127,40 +161,63 @@ After creating the page, fetch it to confirm these sub-pages were created by the
 
 ---
 
-**MANUAL STEP D — Create Google Drive folder:**
-1. Go to the NSY client Google Drive structure
-2. Create a new folder named "[brand_name]"
-3. Copy the folder link
+**AUTOMATED — Create Google Drive folders:**
+
+Claude creates two folders via the Google Drive API:
+1. `[brand_name]` folder inside **Active Clients** (folder ID: `1i7H5JjMAlJPnfzJRDG1xUhGpVWYXCIr2`)
+2. `[brand_name] - Raw` folder inside **Raw Content** (folder ID: `1mOnebdI7qeW4y1ROMgH97h4vU7kPBNQu`)
+
+Use `supportsAllDrives=True` for all Drive operations (files are in the NSY Digital shared drive).
+
+After creating the Active Clients folder, copy its link and set it as the "Google Drive Link" property on the Team Projects page in Notion.
 4. Go back to the Team Projects page and paste the link into the **"Google Drive Link"** property
 
 ---
 
 ## Step 3: Set Up Google Sheets Approval System
 
-Each client needs their own Google Sheet so they can review and approve/reject creative concepts without needing Notion access. When a concept reaches "Client reviewing" status in Notion, a Make.com automation pushes it to the client's sheet automatically.
+Each client needs their own Google Sheet so they can review and approve/reject creative concepts without needing Notion access. When a concept reaches "Client reviewing" status in Notion, an n8n automation instantly pushes it to the client's sheet and sends a Slack notification to the client channel.
 
-**Steps (all manual — tell the operator):**
+**AUTOMATED — Run the onboarding script:**
 
-**MANUAL STEP E — Create the Google Sheet:**
-1. Go to the Google Sheet template
-2. File → Make a copy
-3. Rename it: **"[brand_name] | Creative Performance Hub"**
-4. Share the sheet with the client's POC email(s)
-5. Copy the **Sheet ID** from the URL (the long string between `/d/` and `/edit`)
+Run this command in Claude Code (replace brand name and code):
+```
+python3 ~/nsy-claude-workspace/scripts/onboard-client-sheet.py "[brand_name]" --code [BRAND_CODE]
+```
 
-**MANUAL STEP F — Add to Make.com datastore:**
-1. Go to Make.com → Data stores → "Google Sheets by Brand"
-2. Click "Add"
-3. Enter the Brand Name: **[brand_name]** (must match the Notion Brand property EXACTLY — case sensitive)
-4. Paste the Sheet ID
-5. Click Save
+This script automatically:
+1. Duplicates the Google Sheet template (Template ID: `1ybieW4BSWbFrMX0gJ8yyhhMvo2AZkGBTZg6SYDG5qrA`) with all formatting, tabs, dropdowns, and colors
+2. Renames it to "[brand_name] | Creative Performance Hub"
+3. Shares it with Nativ and the service account
+4. Adds an "n8n Setup" tab with the pre-filled webhook code for this brand
+5. Updates the n8n workflow BRAND_SHEETS mapping with the new sheet ID
+6. Finds the Slack channel `#nsy-[brand]` and updates the n8n BRAND_SLACK mapping
+7. Updates the Notion Team Projects page with the Slack Channel ID
 
-**MANUAL STEP G — Trigger initial population:**
-1. Go to the Notion Master Creative Database for this client
-2. If there are existing concepts, edit the Description field on each one (add a dot, then remove it) to trigger the Make.com webhook and populate the sheet
-3. For new clients with no existing concepts yet, this step can be skipped — concepts will auto-populate as the team creates them
+**MANUAL STEP E — Authorize the Apps Script (60 seconds):**
+1. Open the new Google Sheet
+2. Go to the "n8n Setup" tab at the bottom
+3. Double-click cell A3, select all (Ctrl+A), copy (Ctrl+C)
+4. Go to Extensions > Apps Script
+5. Click + next to Files > Script > name it `n8n`
+6. Paste the code, Ctrl+S to save
+7. Click the clock icon (Triggers) > Add Trigger
+8. Function: `onEditWebhook` | From spreadsheet | On edit
+9. Save and authorize when prompted
 
-**IMPORTANT:** The brand name in Make.com MUST exactly match the Brand property in Notion. If it's "Mission" in Notion, it must be "Mission" in Make.com — not "mission", not "Mission Health & Wellness Limited", not "drink Mission".
+**MANUAL STEP F — Invite the Slack bot:**
+In the `#nsy-[brand]` Slack channel, type: `/invite @NSY Review Notifier`
+
+**MANUAL STEP G — Share the sheet with the client:**
+Share the Google Sheet with the client's POC email(s) as Editor.
+
+**IMPORTANT:** The brand name in the script MUST exactly match the Brand property in Notion. If it's "Mission" in Notion, use "Mission" in the script — not "mission", not "Mission Health & Wellness Limited".
+
+**How it works after setup:**
+- When a concept moves to "Client reviewing" in Notion, it instantly appears in the Google Sheet
+- A Slack notification is sent to `#nsy-[brand]` with a link to the brief or edit
+- When the client updates the status in the Google Sheet, it syncs back to Notion
+- No polling, no Make.com — everything is instant via webhooks
 
 ---
 
@@ -407,9 +464,9 @@ Copy this into the CRM page for tracking:
 4. Project Overview filter set (Brand contains [brand_name])
 5. Ideas Library filter set (Brand(s) contains [brand_name])
 6. Onboarding form shared (Anyone on the web with link)
-7. Google Drive folder created and linked
+7. Google Drive folders created (Active Clients + Raw Content) and linked in Notion
 8. Google Sheet created ("[brand_name] | Creative Performance Hub")
-9. Google Sheet added to Make.com datastore (brand name matches exactly)
+9. Google Sheet added to n8n workflow mappings (BRAND_SHEETS + BRAND_SLACK)
 10. Slack channels created (#nsy-[brand] + #internal-[brand])
 11. Client invited to Slack
 12. Onboarding message sent with form link
@@ -438,7 +495,7 @@ Copy this into the CRM page for tracking:
 5. **Not asking about Strategist, Coordinator, Pod** — Even if empty, always ask. These get forgotten.
 6. **Invoicing before agreement is signed** — Never invoice before the contract is executed.
 7. **Invoicing one-off services upon completion** — Invoice when work STARTS, not when delivered.
-8. **Brand name mismatch in Make.com** — Must exactly match Notion. "Mission" ≠ "mission" ≠ "Mission Health & Wellness Limited".
+8. **Brand name mismatch in n8n** — Must exactly match Notion. "Mission" ≠ "mission" ≠ "Mission Health & Wellness Limited".
 9. **Not creating internal Slack channel** — Team needs a private space to discuss strategy without the client seeing.
 10. **Not sharing Google Sheet with client** — The sheet needs to be shared with their email so they can review and approve concepts.
 11. **Not creating Google Drive folder** — Team needs a shared folder for raw files, B-roll, brand assets.
@@ -457,4 +514,4 @@ Copy this into the CRM page for tracking:
 - **Slack channel naming:** `#nsy-[brand_lowercase]` (client) + `#internal-[brand_lowercase]` (team)
 - **Google Ads team member (Slack):** James — U0A2C27L9D5
 - **NSY Facebook Business Manager ID:** 1084328432442084
-- **Make.com datastore:** Google Sheets by Brand (brand name must match Notion exactly)
+- **n8n workflow:** BRAND_SHEETS and BRAND_SLACK mappings (brand name must match Notion exactly)

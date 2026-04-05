@@ -404,3 +404,68 @@ The structures above are the skeleton. These frameworks from the NSY Wiki tell y
 | FOMO | Strong review counts, viral momentum | Social proof lead > More proof > Benefit > CTA |
 
 **Key principle from the Wiki:** "Frameworks are NOT formulas. Formulas are restrictive. They obstruct the creative process. Frameworks, consisting of components that can be packaged together, are the right amount of structure and freedom for creativity."
+
+---
+
+## PERSONIFICATION CONCEPT FORMAT (AI Animation)
+
+A distinct concept format where the problem is personified as a villain character, the product as a hero character, and the consumer as the victim. This format is always produced as AI animation (Seedance 2.0) because you can't film a talking beer glass or a supplement sachet with arms.
+
+### How It Differs from the Enemy Framework
+The Enemy framework (above) positions a common enemy conceptually - "the real problem isn't X, it's Y." Personification goes further: the enemy becomes a literal animated character with a body, voice, personality, and physical actions. It's not "alcohol is bad for your sleep" - it's a beer pint glass villain with thin arms and a dark cape, sucking magnesium out of a man's skull through a straw while taunting the camera.
+
+### The Three Characters
+
+| Character | Role | Visual Style | Voice |
+|-----------|------|-------------|-------|
+| Villain | The problem personified (alcohol, sugar, stress, junk food) | Menacing but Pixar-friendly. Thin limbs, cape, evil grin. | Sinister, smug, taunting. Speaks directly to camera in first person. |
+| Victim | The consumer being exploited | Matches target audience (age, gender, appearance). Two states: defeated and restored. | Does not speak. Reacts physically. |
+| Hero | The product personified | Matches actual product packaging. Muscular, cape, protective aura. | Warm, authoritative, reassuring. Same base voice as villain but different tone. |
+
+### Script Structure for Personification
+
+| Phase | Scenes | Speaker | What Happens |
+|-------|--------|---------|-------------|
+| Hook | 1 | Villain | Villain introduces self while exploiting victim. "I'm your nightly beer." |
+| Escalation | 2-4 | Villain | Villain narrates ongoing damage. Each scene shows different harm to victim. |
+| Peak | 5 | Villain | Damage at maximum. Villain triumphant. Victim at lowest point. |
+| Turn | 6 | Hero | Hero arrives. INSTANT colour shift from dark to bright. Reverses damage. |
+| Benefits | 7-9 | Hero | Hero explains what they do, physically shown on victim's body. |
+| Social Proof | 10 | Hero | Scale of transformation. Villain rejected. |
+| CTA | 11 | Hero | Product offer. Hero delivers to viewer. Fourth wall break. |
+
+### Core Rule
+The victim is present in EVERY scene (except social proof). The villain or hero is ALWAYS physically doing something TO the victim - not just standing nearby. This is NOT villain vs hero fighting each other. It's villain exploiting victim, then hero rescuing victim.
+
+### Physical Interactions to Write Into Scripts
+
+**Villain exploiting victim:**
+- Draining (straw in head, hands on temples siphoning particles)
+- Puppeting (strings on wrists, controlling movements)
+- Weighing down (sitting on chest, pressing on shoulders)
+- Poisoning (pouring liquid into mouth, injecting into veins)
+- Suffocating (bag over head, smothering sleep)
+- Fake friendship (arm around victim while secretly doing damage)
+
+**Hero protecting victim:**
+- Healing (hands on temples flowing green particles in)
+- Shielding (energy shield projected over sleeping victim)
+- Freeing (ripping off puppet strings)
+- Guarding (standing beside bed as bodyguard)
+- Placing product (putting product on bedside table for the viewer)
+
+### When to Use Personification
+- Health/wellness brands where the enemy is a substance (alcohol, sugar, caffeine)
+- Products that counter a specific biological process (cortisol, inflammation, oxidative stress)
+- Brands where the mechanism is "we do the opposite of X"
+- When you want scroll-stopping impossible visuals that AI animation enables
+
+### Example: HM36 (Healthy Metal)
+- **Villain:** Beer pint glass with thin arms/legs, dark red cape, evil grin
+- **Victim:** Middle-aged British man, 50s, beer drinker, can't sleep
+- **Hero:** Healthy Metal sachet with muscular arms, cyan cape, gold aura
+- **Hook:** Beer villain with straw jammed in man's skull, sucking blue magnesium particles: "I'm your nightly beer. I'm why you can't sleep... and you don't even know it."
+- **Turn:** Sachet hero bursts into room, rips puppet strings off man's wrists. Instant colour shift from dark reds to warm cyan/gold.
+- **CTA:** Hero places product on sleeping man's bedside table, turns to camera: "Free 5-night trial. Just cover shipping."
+
+**Production:** Always flag as `CREATOR: AI Animation (Personification - Seedance pipeline)`. Hand off to `nsy-ai-video-ads` skill for prompt generation.

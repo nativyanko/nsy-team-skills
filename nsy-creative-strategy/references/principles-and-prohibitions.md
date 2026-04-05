@@ -531,3 +531,34 @@ After revealing the mechanism and before introducing the product, close the self
 When the research supports it, always prefer the "makes it worse" version. It transforms the alternative from "doesn't work" (passive failure) to "is hurting you" (active harm). The motivation shifts from "I should try something better" to "I need to stop doing this immediately."
 
 This beat is so important it survives compression when product build-up, credibility backstory, and parts of the close are eliminated.
+
+---
+
+## VISUAL METAPHORS MADE LITERAL (AI Animation Principle)
+
+When writing for AI animation, take every metaphor in the script and make it physically, visually real. This is the "Show Don't Tell" principle taken to its extreme - AI animation can show things that cameras physically cannot.
+
+**The rule:** If the script says "X does Y to your body," describe the literal visual of X doing Y as a physical action between characters.
+
+### Examples
+
+| Script Claim | Live-Action Visual (weak) | AI Animation Visual (strong) |
+|-------------|--------------------------|------------------------------|
+| "Beer drains your magnesium" | B-roll of beer glass on table | Beer villain with straw jammed in man's skull, sucking glowing blue particles |
+| "Cortisol keeps you up at 3am" | Stock footage of clock at 3am | Villain sitting on man's chest pouring red liquid into his mouth at 3am |
+| "Nothing else has worked" | Person looking frustrated at pills | Puppet master villain slapping magnesium bottle out of man's hand |
+| "It calms your cortisol" | Person sleeping peacefully | Hero standing guard beside bed, cyan shield bouncing villain away |
+| "50,000 have made the swap" | Text overlay with number | Army of sachets marching towards crumbling castle of beer glasses |
+
+### How to Apply
+1. Read each script line
+2. Identify the core claim or metaphor
+3. Ask: "What would this look like if it were literally, physically happening?"
+4. Describe that visual as a specific action between villain/hero and victim
+5. Push for impossible visuals - if you could film it with a camera, you're not using AI animation to its full potential
+
+### When This Principle Applies
+- ONLY for scripts flagged as AI animation
+- Does NOT apply to UGC, founder content, or B-roll scripts
+- The visual metaphor should be immediately understandable without explanation
+- If the viewer needs the dialogue to understand what they're seeing, the visual isn't clear enough

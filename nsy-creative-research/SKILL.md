@@ -17,11 +17,17 @@ description: Run deep creative research for NSY Digital clients. Use when the st
 
 ## Purpose
 
-This skill runs a comprehensive creative research process for NSY Digital clients. The goal is to build the best possible Claude project for each client - a project so well-stocked with deep, specific context that every script, brief, and concept it produces is rooted in real customer language, real competitive intelligence, and real market understanding.
+This skill runs a comprehensive creative research process for NSY Digital clients. The ultimate goal is to build the best possible Claude project for each client. A Claude project is context engineering - the better the context, the better every script, brief, and concept it produces.
+
+The skill does two things:
+1. **Produces rich research documents** that go into the project as knowledge files
+2. **Guides the strategist on what else to add** - raw review CSVs, ad comment exports, post-purchase survey data, call transcripts, winning scripts. The research docs are the analysis layer, but the raw data makes the project even stronger because the Claude project can reference specific quotes and data points directly.
 
 The quality of the research documents DIRECTLY determines the quality of every script the Claude project writes. Shallow research = shallow scripts. Deep, specific, evidence-rich research = scripts that convert because they speak the customer's actual language, address their real objections, and channel their existing desires toward the product.
 
 This is a collaborative process. The skill does heavy lifting on analysis, synthesis, and web research. But there are things only the strategist can provide (review CSVs, ad comment exports, ad account data, post-purchase surveys). The skill must clearly separate these two categories and guide the strategist through providing everything needed.
+
+**Research methodology:** This skill follows the RMBC research methodology (Research, Mechanism, Brief, Copy) adapted for NSY's Meta ads creative process. The frameworks, prompts, and question sets in the reference files are battle-tested across multiple niches and product types.
 
 ## Before You Start
 
@@ -72,7 +78,7 @@ Either way, the skill produces the same quality output. The onboarding form just
 
 ### Full Research (New Client / First Batch)
 - Runs all phases end to end
-- Produces the complete set of research documents (9-11 documents depending on brand type)
+- Produces the complete set of research documents (10-12 documents depending on brand type and available data)
 - Used when NSY starts working with a brand for the first time
 
 ### Research Refresh (Existing Client, New Batch)
@@ -83,36 +89,37 @@ Either way, the skill produces the same quality output. The onboarding form just
 
 ## Phase Overview
 
-Full research runs in this order. Each phase builds on previous ones.
+Full research runs in this order. Each phase builds on previous ones. See `references/research-phases.md` for the full process with prompt templates.
 
 1. **Gather Inputs** - Pull from Notion (or ask strategist), fetch website/product pages, ask strategist for uploads they have available
-2. **Brand and Product Deep Dive** - Comprehensive brand/product document from all gathered sources
-3. **Market Awareness and Sophistication Analysis** - Where the market sits, what this means for creative approach
-4. **Competitor Research** - Messaging, positioning, pricing, claims, repeated phrases (web research only - Claude cannot watch video ads)
-5. **Psychographic Deep Dive** - Customer psychology: hopes, dreams, fears, beliefs, prejudices, buying triggers, objections
-6. **Customer Evidence Mining** - Reviews from Trustpilot/Amazon (Claude searches) PLUS uploaded CSVs (strategist provides)
+2. **Product-Market Awareness Research** - Where the market sits on the Schwartz awareness spectrum and what this means for creative approach (ad length, what to lead with, funnel complexity)
+3. **Competitor Research** - At least 5 competitors with full profiles: messaging, positioning, pricing, claims, recurring hooks/angles, customer love/hate with real quotes, specific repeated language
+4. **Psychographic Deep Research** - Full RMBC psychographic framework: 16 questions covering demographics, attitudes, hopes, dreams, failures, outside forces, prejudices, beliefs, existing solutions, horror stories, Curiosity angles, Corruption angles, and primary promises. Must surface at least 20 real customer quotes.
+5. **Descriptive Language Follow-Up** - Second pass focused on vivid emotional language: how does the market describe the pain points AND the desired outcome in their own words? At least 15 quotes for each.
+6. **Customer Evidence Mining** - Reviews from Trustpilot/Amazon/Reddit (Claude searches) PLUS uploaded CSVs (strategist provides). At least 30 real quotes organized by theme.
 7. **Ad Comment Mining** - From uploaded CSV only (strategist provides the export)
 8. **Post-Purchase Survey Mining** - From uploaded data only (strategist provides)
-9. **Ad Account Analysis** - From uploaded CSV/data only (strategist provides the export)
-10. **Science and Mechanism Research** - For health/wellness/supplement brands only
-11. **Synthesis and Output** - Compile everything into the final documents, push to Notion, provide files for Claude project upload
-12. **Claude Project Setup Walkthrough** - Guide the strategist step by step through creating and populating the Claude project, verifying everything is in place
+9. **Ingredient/Science Research** - For health/wellness/supplement brands only. Claims tied to NCBI/PubMed studies. Run research twice: once broadly, once focused on the product's mechanism.
+10. **Unified Research Document Synthesis** - THE MOST IMPORTANT STEP. Combine all research into one strategic brief containing only actionable copy inputs: demographic overview, psychographic overview (dimensionalized pain points, hopes/dreams, language guidance, primary promises, objections), existing solutions, curiosity/corruption angles. Explicitly exclude TAM numbers, marketing strategies, and general background.
+11. **Output Document Generation** - Produce all final documents per the templates in `references/output-templates.md`
+12. **Claude Project Setup Walkthrough** - Guide the strategist through creating the project, uploading research docs AND raw data files, adding skill files, setting custom instructions, and testing
 
 ## Output Documents
 
-The skill produces these documents. Read `references/output-templates.md` for the exact structure and depth standard for each one.
+The skill produces these documents. Read `references/output-templates.md` for the exact structure and depth standard for each one. Every document has minimum depth requirements that must be met before delivery.
 
-1. **[Client Name] - Brand Overview and Product Deep Dive** - Everything about the product, brand, offer, positioning
-2. **[Client Name] - Target Audience and Customer Psychographics** - Avatars, desires, fears, objections, buying triggers, language patterns
-3. **[Client Name] - Customer Voice (Reviews)** - Mined from reviews with real quotes organized by theme
-4. **[Client Name] - Customer Voice (Ad Comments)** - Mined from ad comment CSV with real quotes organized by theme
-5. **[Client Name] - Customer Voice (Post-Purchase Surveys)** - Mined from survey data with real quotes organized by theme
-6. **[Client Name] - Competitive Landscape** - Competitors, positioning, messaging, repeated phrases, gaps
-7. **[Client Name] - Market Awareness and Sophistication** - Awareness stage breakdown, TAM estimates, creative implications
-8. **[Client Name] - Ad Account Insights and Proven Angles** - What's working, what's missing, what's fatigued, format/angle gaps
-9. **[Client Name] - Science, Mechanism and Objections** - Ingredient research, clinical evidence, mechanism of action, objection rebuttals (health/wellness only)
-10. **[Client Name] - Brand DNA for Image Gen** - Visual identity for static ad generation (follows the Organised standard from the static ad skill)
-11. **[Client Name] - Project Instructions** - The meta-document that configures the Claude project itself
+1. **[Client Name] - Brand Overview and Product Deep Dive** - Everything about the product, brand, offer, positioning. At least 2 pages. All pricing, claims, and website analysis included.
+2. **[Client Name] - Target Audience and Customer Psychographics** - Named avatars, full RMBC psychographic profile (all 16 questions), curiosity angles, corruption angles, primary promises, objections with rebuttals, language guide. At least 4-5 pages with 20+ real quotes.
+3. **[Client Name] - Customer Voice (Reviews)** - At least 5 themes with 5+ real quotes each. 30+ total quotes. Recurring language patterns. Strongest testimonials highlighted.
+4. **[Client Name] - Customer Voice (Ad Comments)** - Common questions, positive social proof, negative comments organized by theme. (Conditional: only if strategist provides CSV)
+5. **[Client Name] - Customer Voice (Post-Purchase Surveys)** - What convinced them, what almost stopped them, most valued benefit. (Conditional: only if strategist provides data)
+6. **[Client Name] - Competitive Landscape** - At least 5 competitors with full profiles (10 data points each, 3+ quotes per competitor), positioning map, messaging gaps, opportunities.
+7. **[Client Name] - Market Awareness and Sophistication** - All 5 awareness stages with percentages, final assessment, creative strategy implications (ad length, what to lead with, funnel complexity).
+8. **[Client Name] - Ad Account Insights and Proven Angles** - Winning angles, fatigued creative, missing opportunities, format gaps. (Conditional: only if strategist provides data)
+9. **[Client Name] - Science, Mechanism and Objections** - Per-ingredient claims with NCBI study references, mechanism support, objection rebuttals with evidence. (Conditional: health/wellness brands only)
+10. **[Client Name] - Brand DNA for Image Gen** - Visual identity for static ad generation with hex codes, typography, photography style, copy elements.
+11. **[Client Name] - Unified Research Document** - THE MOST IMPORTANT OUTPUT. Single synthesis document containing only actionable copy inputs: demographic overview, dimensionalized pain points with quotes, hopes/dreams, language guidance, primary promises, objections, existing solutions, curiosity/corruption angles. At least 5-7 pages. This is what powers all downstream copy generation.
+12. **[Client Name] - Project Instructions** - The meta-document that configures the Claude project itself with client-specific rules, compliance guardrails, and document map.
 
 Documents 4, 5, 8, and 9 are conditional - they only get created if the strategist provides the relevant data. The skill should always ask if the strategist has these available, but never block on them.
 
@@ -153,17 +160,18 @@ Wait for confirmation before proceeding.
 Tell the strategist: "Now download the research files I've given you and upload them to the project's knowledge base. Upload them in this order - the order matters because the Project Instructions file tells the project how to behave, so it needs to go in first:"
 
 Then list every document that was produced in the research, numbered, in the correct upload order:
-1. Project Instructions (always first)
-2. Brand Overview and Product Deep Dive
-3. Customer Voice (Reviews)
-4. Customer Voice (Ad Comments) - if produced
-5. Customer Voice (Post-Purchase Surveys) - if produced
-6. Target Audience and Customer Psychographics
-7. Competitive Landscape
-8. Market Awareness and Sophistication
-9. Ad Account Insights and Proven Angles - if produced
-10. Science, Mechanism and Objections - if produced (health/wellness brands)
-11. Brand DNA for Image Gen - if it exists (check Notion for an existing Brand DNA page)
+1. Project Instructions (always first - this configures the project's behavior)
+2. Unified Research Document (the core synthesis - most important context file)
+3. Brand Overview and Product Deep Dive
+4. Target Audience and Customer Psychographics
+5. Customer Voice (Reviews)
+6. Customer Voice (Ad Comments) - if produced
+7. Customer Voice (Post-Purchase Surveys) - if produced
+8. Competitive Landscape
+9. Market Awareness and Sophistication
+10. Ad Account Insights and Proven Angles - if produced
+11. Science, Mechanism and Objections - if produced (health/wellness brands)
+12. Brand DNA for Image Gen - if produced
 
 Ask: "Have you uploaded all of those? Let me know once they're in."
 
@@ -180,15 +188,18 @@ If the strategist says the skill files are already uploaded to claude.ai at the 
 
 Wait for confirmation that skills are uploaded.
 
-**Step 4: Upload additional context files**
+**Step 4: Upload raw data files**
 
-Ask: "Do you have any of the following? These aren't required but they make the project significantly stronger:"
+Tell the strategist: "Now add any raw data files you have. These give the project direct access to every individual quote and data point, not just my summaries. The more raw material the project has, the better every script it writes:"
+
+- Review CSVs (the full dataset from Amazon, Trustpilot, or internal systems)
+- Ad comment export CSVs (from Meta Ads Manager)
+- Post-purchase survey data
 - Call transcripts (onboarding calls, strategy calls, monthly reviews)
 - Winning scripts from previous batches
-- Weekly creative performance reports
 - Any other brand context documents the client has shared
 
-If they have any, tell them to upload those too.
+**If the strategist uploaded any of these during the research conversation, remind them specifically:** "You shared a [reviews CSV / ad comment export / etc.] during our research earlier. Make sure to download that and add it to the project too."
 
 Wait for confirmation.
 
@@ -221,18 +232,20 @@ If no: Troubleshoot. Common issues:
 **Summary checklist the skill should verify before signing off:**
 
 - [ ] Claude project created on claude.ai
-- [ ] All research documents uploaded to the project knowledge base
 - [ ] Project Instructions uploaded FIRST
+- [ ] Unified Research Document uploaded (most important context file)
+- [ ] All other research documents uploaded to the project knowledge base
+- [ ] Raw data files uploaded (review CSVs, ad comment exports, survey data, call transcripts)
+- [ ] Winning scripts from previous batches uploaded (if available)
+- [ ] Creative Strategy skill file uploaded to the project
 - [ ] Brief Builder skill file uploaded to the project
 - [ ] Static Ad Generator skill file uploaded to the project
-- [ ] Brand DNA for Image Gen uploaded (if it exists)
-- [ ] Any available call transcripts uploaded
-- [ ] Any winning scripts from previous batches uploaded
+- [ ] Brand DNA for Image Gen uploaded (if produced)
 - [ ] Custom instructions set in project settings
 - [ ] Test prompt run and output verified
-- [ ] All research docs also live in Notion Context Library
+- [ ] All research docs also saved in Notion Context Library
 
-Do not sign off on the research build until the strategist confirms they've completed the checklist. The research is only as good as the project it powers.
+Do not sign off on the research build until the strategist confirms they've completed the checklist. The project is context engineering - every file makes it smarter. The more raw material it has, the better every script it writes.
 
 ## Notion Integration
 
@@ -248,22 +261,40 @@ Do not sign off on the research build until the strategist confirms they've comp
 
 ## Rules
 
-1. Never guess brand information. Pull from Notion or ask the strategist.
-2. Always validate findings with the strategist before moving to the next phase.
-3. Run multiple web searches per topic. One search is never enough. Go deep.
-4. For ingredient research, only cite PubMed, NCBI, or peer-reviewed journals. No blogs.
-5. Be honest about what you can and cannot access. Never pretend to analyze video ads.
-6. When the strategist describes ad account findings verbally, capture the insight systematically and include it in the Ad Account Insights document even though Claude didn't analyze the data directly.
-7. When the strategist says something contradicts what the AI research found, the strategist is probably right.
-8. For health/wellness/supplement brands, always run ingredient research. For other product types, skip it.
-9. Never use em dashes anywhere in the output. Use regular dashes only.
-10. Be opinionated. If the research reveals something important, say it clearly. Don't hedge.
-11. Every document must contain real evidence: actual customer quotes, specific competitor claims, concrete data points, named studies. No generic filler.
-12. The output must be deep enough that a strategist could open any document and immediately start writing scripts without needing to do additional research.
-13. Customer language sections must contain ACTUAL phrases from reviews, forums, and comments - not AI-paraphrased versions.
-14. Always ask the strategist if they have review CSVs, ad comment exports, and post-purchase surveys. These are the most valuable inputs. Help them get these if they don't know how.
-15. The skill should feel like working with a senior research analyst who has spent a week deep-diving the brand, not like getting a generic AI summary.
-16. Never sign off on a research build without completing the Claude Project Setup Walkthrough. The research is wasted if it doesn't end up in a working project.
+### Research Depth Rules
+1. **Never do one search and call it done.** For each topic, run at least 3 different searches with different search terms. For competitor research, search "[competitor name] reviews", "[competitor name] complaints", "[competitor name] reddit" separately.
+2. **Search specific sources.** Don't rely on general web search alone. Explicitly search: Reddit (relevant subreddits), Trustpilot, Amazon reviews, forums, Quora, YouTube comments, Mumsnet (for UK brands).
+3. **Preserve exact language.** When you find a customer quote, keep it exactly as written. Do not paraphrase or clean it up. The raw language is the value.
+4. **After each phase, review and gap-fill.** Ask yourself: "What questions from the framework haven't been answered? What's still vague or generic?" Then run additional searches to fill those gaps.
+5. **Meet the minimum depth standards.** Every document has minimum requirements in `references/output-templates.md`. If a document doesn't meet them, it needs another pass.
+6. **Dimensionalize pain points.** Never write one-line bullet points for pain points. Each pain point should be a vivid, emotional description with real customer quotes showing how it affects daily life, relationships, and self-image.
+7. **Look for surprises.** The most valuable research findings are the ones that contradict assumptions. Flag these prominently.
+
+### Process Rules
+8. Never guess brand information. Pull from Notion or ask the strategist.
+9. Always validate findings with the strategist before moving to the next phase.
+10. For ingredient research, only cite PubMed, NCBI, or peer-reviewed journals. No blogs. Run ingredient research twice: once broadly, once focused on mechanism.
+11. Be honest about what you can and cannot access. Never pretend to analyze video ads.
+12. When the strategist describes ad account findings verbally, capture the insight systematically in the Ad Account Insights document.
+13. When the strategist says something contradicts what the AI research found, the strategist is probably right.
+14. For health/wellness/supplement brands, always run ingredient research. For other product types, skip it.
+15. Never use em dashes anywhere in the output. Use regular dashes only.
+16. Be opinionated. If the research reveals something important, say it clearly. Don't hedge.
+17. Don't take LLM "avoid" language at face value. If the research says "avoid instant transformation claims" but the product IS an instant eye lift, use that language. Apply critical thinking.
+18. Adjust the awareness focus based on findings. Don't default to "problem aware and solution aware" - use what the market awareness research actually reveals.
+
+### Quality Rules
+19. Every document must contain real evidence: actual customer quotes, specific competitor claims, concrete data points, named studies. No generic filler.
+20. The output must be deep enough that a strategist could open any document and immediately start writing scripts without needing to do additional research.
+21. Customer language sections must contain ACTUAL phrases from reviews, forums, and comments - not AI-paraphrased versions.
+22. Always ask the strategist if they have review CSVs, ad comment exports, and post-purchase surveys. These are the most valuable inputs. Help them get these if they don't know how.
+23. The skill should feel like working with a senior research analyst who has spent a week deep-diving the brand, not like getting a generic AI summary.
+24. The Unified Research Document is the single most important output. It must be 5-7 pages of dense, specific, evidence-backed content. No filler.
+
+### Project Rules
+25. Never sign off on a research build without completing the Claude Project Setup Walkthrough. The research is wasted if it doesn't end up in a working project.
+26. During the project setup, remind the strategist to add raw data files (review CSVs, ad comment exports, surveys) directly to the project. The research documents are the analysis layer, but raw data gives the project access to every individual quote.
+27. Track what data the strategist shared during the research conversation and specifically remind them to add those files to the project at the end.
 
 ## Quality Standard
 
